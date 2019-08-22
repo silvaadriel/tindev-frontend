@@ -25,6 +25,26 @@ const Dev = ({ match }) => {
     loadUsers();
   }, [match.params.id]);
 
+  const handleLike = async id => {
+    await api.post(`/devs/${id}/likes`, null, {
+      headers: {
+        user: match.params.id
+      },
+    });
+
+    setUsers(users.filter(user => user._id !== id));
+  };
+
+  const handleDislike = async id => {
+    await api.post(`/devs/${id}/dislikes`, null, {
+      headers: {
+        user: match.params.id
+      },
+    });
+
+    setUsers(users.filter(user => user._id !== id));
+  };
+
   return (
     <div className="dev-container">
       <Link to="/">
@@ -39,10 +59,10 @@ const Dev = ({ match }) => {
               <p>{user.bio}</p>
             </footer>
             <div className="buttons">
-              <button type="button">
+              <button type="button" onClick={() => handleDislike(user._id)}>
                 <img src={dislike} alt="Dislike" />
               </button>
-              <button type="button">
+              <button type="button" onClick={() => handleLike(user._id)}>
                 <img src={like} alt="Like" />
               </button>
             </div>
