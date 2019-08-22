@@ -3,7 +3,7 @@ import api from '../services/api';
 import logo from "../assets/logo.svg";
 import './Login.css';
 
-const Login = () => {
+const Login = ({ history }) => {
   const [ username, setUsername ] = useState('');
 
   const handleSubmit = async (event) => {
@@ -13,7 +13,7 @@ const Login = () => {
       username,
     });
 
-    console.log(response.data);
+    history.push(`/dev/${response.data._id}`);
   };
 
   const handleInputUsername = event => setUsername(event.target.value);
