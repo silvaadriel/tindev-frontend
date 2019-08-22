@@ -71,3 +71,29 @@
   font-weight: bold;
   margin-top: 200px;
 }
+
+@media (max-width: 960px) {
+  .dev-container {
+    max-width: 760px;
+  }
+
+  .dev-container ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dev-container {
+    max-width: 400px;
+  }
+
+  .dev-container ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .dev-container {
+    max-width: 320px;
+  }
+}
