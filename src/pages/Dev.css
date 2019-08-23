@@ -72,6 +72,10 @@
   margin-top: 200px;
 }
 
+.dev-container .loading {
+  margin-top: 200px;
+}
+
 @media (max-width: 960px) {
   .dev-container {
     max-width: 760px;
